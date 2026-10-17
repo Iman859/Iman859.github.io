@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iman Sargin – Portfolio</title>
+  <meta name="description" content="Portfolio von Iman Sargin – Student der Technischen Informatik (Embedded Systems) an der BHT Berlin, Producer und Muay-Thai-Fan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Leuchtende Hintergrund-Flecken (reine Deko) -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- Navigation: jeder Link öffnet einen "Reiter" (siehe script.js) -->
+  <nav>
+    <a href="#start" class="logo">&lt;<span>IS</span> /&gt;</a>
+    <button id="menu-button" aria-label="Menü öffnen">☰</button>
+    <div class="nav-links">
+      <a href="#start">Start</a>
+      <a href="#ueber-mich">Über mich</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#skills">Skills &amp; CV</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===================== START ===================== -->
+    <section id="start" class="reiter">
+      <div class="terminal">
+        <div class="terminal-leiste">
+          <span></span><span></span><span></span>
+          <p>~/portfolio</p>
+        </div>
+        <div class="terminal-inhalt">
+          <p><span class="prompt">$</span> whoami</p>
+          <h1>Iman Sargin</h1>
+          <p class="rolle"><span id="tipptext"></span><span class="cursor">_</span></p>
+        </div>
+      </div>
+
+      <p class="intro">
+        Student der <strong>Technischen Informatik – Embedded Systems</strong> an der
+        Berliner Hochschule für Technik. Zwischen Hardware, Code, Beats und Muay Thai.
+      </p>
+
+      <div class="buttons">
+        <a href="#ueber-mich" class="button">Lern mich kennen</a>
+        <a href="#kontakt" class="button button-rand">Kontakt</a>
+      </div>
+    </section>
+
+    <!-- ===================== ÜBER MICH ===================== -->
+    <section id="ueber-mich" class="reiter">
+      <h2><span class="nummer">01.</span> Über mich</h2>
+
+      <p>
+        Ich studiere im 5. Semester Technische Informatik mit Schwerpunkt Embedded Systems
+        an der BHT Berlin. Mich reizt, wie Software direkt mit Hardware spricht, von C und C++
+        bis runter zu VHDL und Assembly. Wohin es danach genau geht, ist noch offen, und das
+        finde ich spannend: Ich will möglichst viel ausprobieren und herausfinden, was es alles gibt.
+      </p>
+      <p>
+        Für mein Alter habe ich schon viel erlebt. Seit 2016 arbeite ich neben Schule und
+        Studium, in einer Apotheke, einem Impfzentrum, in der Gastronomie und im Einzelhandel.
+        Das hat mich anpassungsfähig, belastbar und weltoffen gemacht. Menschen beschreiben mich als <span class="neon">hilfsbereit</span>,
+        <span class="neon">freundlich</span> und <span class="neon">ehrlich</span>.
+      </p>
+
+      <blockquote>
+        „Aus jeder Erfahrung, gut oder schlecht, kann man lernen, ein Leben lang.
+        Niemals aufgeben, auch nicht in der dunkelsten Stunde: Am Ende des Tunnels
+        gibt es immer Licht, ein besseres Morgen, für das wir alle kämpfen sollten. Miteinander.“
+      </blockquote>
+
+      <h3>Meine Stärken</h3>
+      <ul class="chips">
+        <li>Sozial kompetent</li>
+        <li>Empathisch</li>
+        <li>Hilfsbereit</li>
+        <li>Höflich &amp; charmant</li>
+        <li>Schnell anpassungsfähig</li>
+        <li>Direkt &amp; ehrlich</li>
+        <li>Authentisch</li>
+        <li>Lösungsorientiert</li>
+        <li>Stressresilient</li>
+        <li>Weltoffen</li>
+      </ul>
+
+      <h3>Wenn ich nicht studiere …</h3>
+      <div class="karten">
+        <div class="karte">
+          <div class="icon">🎧</div>
+          <h4>Musikproduktion</h4>
+          <p>
+            Seit ich 15 bin, produziere ich Beats in FL Studio, komplett selbst beigebracht.
+            Vor allem Hip-Hop, R&amp;B und Trap, aber eigentlich jedes Genre. Mixing und
+            Mastering mache ich selbst.
+          </p>
+          <a href="#projekte">Zur Musik →</a>
+        </div>
+        <div class="karte">
+          <div class="icon">🥊</div>
+          <h4>Muay Thai</h4>
+          <p>
+            Seit zwei Jahren trainiere ich Muay Thai. Der Sport bringt mir Disziplin,
+            Ausdauer und einen klaren Kopf, gerade wenn das Studium stressig wird.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJEKTE ===================== -->
+    <section id="projekte" class="reiter">
+      <h2><span class="nummer">02.</span> Projekte</h2>
+
+      <div class="projekt projekt-gross">
+        <p class="projekt-label">// Musik</p>
+        <h3>Beats &amp; Produktion</h3>
+        <p>
+          Eigene Beats, Mixing und Mastering in FL Studio, mit Fokus auf Hip-Hop, R&amp;B und Trap.
+          Hör gern rein:
+        </p>
+        <ul class="tags">
+          <li>FL Studio</li><li>Mixing</li><li>Mastering</li><li>Hip-Hop</li><li>R&amp;B</li><li>Trap</li>
+        </ul>
+        <div class="musik-links">
+          <a class="karte" href="https://www.youtube.com/@imano2beatz" target="_blank" rel="noopener">
+            <div class="icon">▶️</div>
+            <h4>YouTube</h4>
+            <p>@imano2beatz · Hauptkanal</p>
+          </a>
+          <a class="karte" href="https://www.youtube.com/@slowedimano" target="_blank" rel="noopener">
+            <div class="icon">🌙</div>
+            <h4>YouTube</h4>
+            <p>@slowedimano · Zweitkanal</p>
+          </a>
+          <a class="karte" href="https://open.spotify.com/artist/2Ov8cNvTQMWCDS6OYpI6IP" target="_blank" rel="noopener">
+            <div class="icon">🎵</div>
+            <h4>Spotify</h4>
+            <p>Künstlerprofil</p>
+          </a>
+          <a class="karte" href="https://imano2beatz.beatstars.com" target="_blank" rel="noopener">
+            <div class="icon">🛒</div>
+            <h4>BeatStars</h4>
+            <p>Mein Beat Store</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="projekt projekt-bald">
+        <p class="projekt-label">// Embedded &amp; Code</p>
+        <h3>Coming soon …</h3>
+        <p>
+          Hier landen bald meine ersten eigenen Projekte rund um Embedded Systems,
+          C/C++ und Hardware.
+        </p>
+        <p class="kommentar">/* in Arbeit */</p>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS & LEBENSLAUF ===================== -->
+    <section id="skills" class="reiter">
+      <h2><span class="nummer">03.</span> Skills &amp; Lebenslauf</h2>
+
+      <h3>Programmierung</h3>
+      <!-- Level: 3 = sehr gut, 2 = gut, 1 = Grundlagen -->
+      <ul class="skills">
+        <li data-level="3"><span>C</span><em>sehr gut</em></li>
+        <li data-level="3"><span>C++</span><em>sehr gut</em></li>
+        <li data-level="2"><span>VHDL</span><em>gut</em></li>
+        <li data-level="2"><span>Shell (Bash, zsh, PowerShell)</span><em>gut</em></li>
+        <li data-level="1"><span>Java</span><em>Grundlagen</em></li>
+        <li data-level="1"><span>Python</span><em>Grundlagen</em></li>
+        <li data-level="1"><span>Assembly</span><em>Grundlagen</em></li>
+        <li data-level="1"><span>MATLAB</span><em>Grundlagen</em></li>
+      </ul>
+
+      <h3>Tools</h3>
+      <ul class="chips">
+        <li>FL Studio</li>
+        <li>MS Office (Excel, Word, PowerPoint)</li>
+      </ul>
+
+      <h3>Sprachen</h3>
+      <ul class="sprachen">
+        <li><strong>Deutsch</strong> Muttersprache</li>
+        <li><strong>Englisch</strong> C1, fließend</li>
+        <li><strong>Französisch</strong> Grundlagen</li>
+        <li><strong>Türkisch</strong> Grundlagen</li>
+        <li><strong>Persisch (Farsi)</strong> Grundlagen</li>
+      </ul>
+
+      <h3>Werdegang</h3>
+      <p class="hinweis">Klick auf eine Station für Details.</p>
+
+      <!-- Filter: data-filter muss zu data-typ der Einträge passen -->
+      <div class="filter">
+        <button class="aktiv" data-filter="alle">Alle</button>
+        <button data-filter="bildung">Bildung</button>
+        <button data-filter="arbeit">Arbeit</button>
+      </div>
+
+      <ol class="timeline">
+        <li data-typ="bildung" class="jetzt">
+          <details open>
+            <summary>
+              <span class="zeit">10/2024 – heute</span>
+              <h4>Technische Informatik – Embedded Systems</h4>
+              <p>Berliner Hochschule für Technik (BHT) · Bachelor</p>
+            </summary>
+            <div class="details">
+              <!-- 7 Semester: "fertig" = abgeschlossen, "aktuell" = gerade dran -->
+              <div class="semester" aria-label="Aktuell im 5. von 7 Semestern">
+                <span class="fertig"></span><span class="fertig"></span><span class="fertig"></span><span class="fertig"></span><span class="aktuell"></span><span></span><span></span>
+              </div>
+              <p class="klein">Semester 5 / 7</p>
+              <p>Abgeschlossene Module u. a.:</p>
+              <ul class="tags">
+                <li>Objektorientierte Programmierung</li>
+                <li>Systemprogrammierung</li>
+                <li>Algorithmen &amp; Datenstrukturen</li>
+                <li>Rechnerarchitektur</li>
+                <li>Diskrete Schaltungstechnik</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        <li data-typ="arbeit">
+          <details>
+            <summary>
+              <span class="zeit">02/2024 – 01/2025</span>
+              <h4>Mitarbeiter im Einzelhandel</h4>
+              <p>Netto, Berlin</p>
+            </summary>
+            <ul class="details">
+              <li>Eigenständige Kassenführung und Tagesabrechnung</li>
+              <li>Warenverräumung und Bestandskontrollen</li>
+              <li>Verantwortlich für das Auf- und Zuschließen des Marktes</li>
+              <li>Einarbeitung neuer Aushilfskräfte</li>
+            </ul>
+          </details>
+        </li>
+        <li data-typ="arbeit">
+          <details>
+            <summary>
+              <span class="zeit">04/2022 – 09/2023</span>
+              <h4>Gastronomiemitarbeiter</h4>
+              <p>S-Cafe Friedenau, Berlin</p>
+            </summary>
+            <ul class="details">
+              <li>Service und Getränkezubereitung bei hohem Gästeaufkommen</li>
+              <li>Eigenverantwortliche Schichtleitung am Abend inkl. Kassenabschluss</li>
+              <li>Einhaltung der Hygiene- und Sauberkeitsstandards</li>
+            </ul>
+          </details>
+        </li>
+        <li data-typ="arbeit">
+          <details>
+            <summary>
+              <span class="zeit">12/2021 – 03/2022</span>
+              <h4>Mitarbeiter am Empfang (Impfzentrum)</h4>
+              <p>Policum – Sanecum, Berlin</p>
+            </summary>
+            <ul class="details">
+              <li>Empfang und Betreuung zahlreicher Patienten täglich</li>
+              <li>Terminvergabe und Pflege digitaler Akten</li>
+              <li>Prüfung von Impfpässen und Versicherungsdaten unter Einhaltung des Datenschutzes</li>
+            </ul>
+          </details>
+        </li>
+        <li data-typ="bildung">
+          <details>
+            <summary>
+              <span class="zeit">08/2014 – 06/2021</span>
+              <h4>Abitur</h4>
+              <p>Fichtenberg-Gymnasium, Berlin</p>
+            </summary>
+          </details>
+        </li>
+        <li data-typ="arbeit">
+          <details>
+            <summary>
+              <span class="zeit">11/2016 – 12/2021</span>
+              <h4>Mitarbeiter</h4>
+              <p>Forst-Apotheke, Berlin</p>
+            </summary>
+            <ul class="details">
+              <li>Warenannahme und Einsortieren von Medikamentenlieferungen</li>
+              <li>Auslieferungsfahrten an Arztpraxen und Altenheime</li>
+              <li>Kundenberatung und Service vor Ort</li>
+            </ul>
+          </details>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== KONTAKT ===================== -->
+    <section id="kontakt" class="reiter">
+      <h2><span class="nummer">04.</span> Kontakt</h2>
+      <p>
+        Du willst dich austauschen, hast eine Projektidee oder einfach eine Frage?
+        Schreib mir gern.
+      </p>
+      <div class="kontakt-karten">
+        <a class="karte" href="mailto:iman.sargin@gmail.com">
+          <div class="icon">✉️</div>
+          <h4>E-Mail</h4>
+          <p>iman.sargin@gmail.com</p>
+        </a>
+        <a class="karte" href="https://github.com/Iman859" target="_blank" rel="noopener">
+          <div class="icon">⌨️</div>
+          <h4>GitHub</h4>
+          <p>github.com/Iman859</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© <span id="jahr"></span> Iman Sargin · selbst gebaut mit HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+/* Farben an einer Stelle – hier kannst du experimentieren! */
+:root {
+  --hintergrund: #050816;
+  --flaeche: #0b1230;
+  --flaeche-hell: #111a40;
+  --rand: #1e2a5a;
+  --text: #dbe4ff;
+  --text-leise: #8a96c4;
+  --neon: #00e5ff;      /* Cyan */
+  --neon-2: #b44cff;    /* Violett */
+  --neon-3: #ff2bd6;    /* Pink */
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background:
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--hintergrund);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Leuchtende Flecken im Hintergrund */
+.glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+}
+.glow-1 { background: var(--neon); top: -120px; left: -120px; }
+.glow-2 { background: var(--neon-2); bottom: -150px; right: -150px; }
+
+a {
+  color: var(--neon);
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rand);
+}
+
+.logo {
+  font-family: var(--mono);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+}
+.logo span {
+  color: var(--neon);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--text-leise);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.aktiv {
+  color: var(--neon);
+  background: rgba(0, 229, 255, 0.08);
+  text-shadow: 0 0 8px var(--neon);
+}
+
+#menu-button {
+  display: none;
+  background: none;
+  border: 1px solid var(--rand);
+  color: var(--neon);
+  font-size: 1.3rem;
+  border-radius: 6px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+/* ---------- Reiter ---------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+
+.reiter {
+  display: none;
+}
+.reiter.sichtbar {
+  display: block;
+  animation: einblenden 0.4s ease;
+}
+
+@keyframes einblenden {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0 0 24px;
+}
+
+h3 {
+  margin-top: 40px;
+  color: var(--neon);
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nummer {
+  font-family: var(--mono);
+  color: var(--neon);
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+.neon {
+  color: var(--neon);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+}
+
+/* ---------- Start / Terminal ---------- */
+.terminal {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.12);
+}
+
+.terminal-leiste {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--flaeche-hell);
+  border-bottom: 1px solid var(--rand);
+}
+.terminal-leiste span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rand);
+}
+.terminal-leiste span:nth-child(1) { background: var(--neon-3); }
+.terminal-leiste span:nth-child(2) { background: var(--neon-2); }
+.terminal-leiste span:nth-child(3) { background: var(--neon); }
+.terminal-leiste p {
+  margin: 0 0 0 auto;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-leise);
+}
+
+.terminal-inhalt {
+  padding: 28px;
+  font-family: var(--mono);
+}
+.terminal-inhalt p {
+  margin: 0;
+}
+
+.prompt {
+  color: var(--neon-3);
+}
+
+.terminal-inhalt h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  margin: 12px 0;
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rolle {
+  color: var(--text-leise);
+  min-height: 1.7em;
+}
+
+.cursor {
+  color: var(--neon);
+  animation: blinken 1s steps(1) infinite;
+}
+@keyframes blinken {
+  50% { opacity: 0; }
+}
+
+.intro {
+  font-size: 1.15rem;
+  margin: 32px 0;
+}
+
+/* ---------- Buttons ---------- */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  font-family: var(--mono);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--neon);
+  color: var(--hintergrund);
+  border: 1px solid var(--neon);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.button:hover {
+  box-shadow: 0 0 20px var(--neon);
+  transform: translateY(-2px);
+}
+
+.button-rand {
+  background: transparent;
+  color: var(--neon);
+}
+
+/* ---------- Über mich ---------- */
+blockquote {
+  margin: 32px 0;
+  padding: 20px 24px;
+  border-left: 3px solid var(--neon-2);
+  background: rgba(180, 76, 255, 0.08);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+
+.chips,
+.tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips li {
+  padding: 6px 14px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  background: var(--flaeche);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.chips li:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+}
+
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--neon-2);
+}
+
+.musik-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.musik-links .karte {
+  padding: 16px;
+}
+
+.karten,
+.kontakt-karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.karte {
+  display: block;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  padding: 22px;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.karte:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.15);
+}
+.karte h4 {
+  margin: 8px 0;
+  font-size: 1.15rem;
+}
+.karte p {
+  margin: 0 0 8px;
+  color: var(--text-leise);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+/* ---------- Projekte ---------- */
+.projekt {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.projekt h3 {
+  margin: 4px 0 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+.projekt-gross {
+  border-color: var(--neon-2);
+  box-shadow: 0 0 30px rgba(180, 76, 255, 0.15);
+}
+
+.projekt-bald {
+  border-style: dashed;
+}
+
+.projekt-label,
+.kommentar {
+  font-family: var(--mono);
+  color: var(--text-leise);
+  margin: 0;
+}
+.projekt-label {
+  color: var(--neon-3);
+}
+
+/* ---------- Skills ---------- */
+.skills {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.skills li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+}
+.skills em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--text-leise);
+}
+
+/* Der Balken unter jedem Skill – Breite hängt vom data-level ab */
+.skills li::after {
+  content: "";
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, var(--neon), var(--neon-2)) 0 0 / var(--breite, 0%) 100% no-repeat,
+    var(--flaeche-hell);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+}
+.skills li[data-level="1"] { --breite: 33%; }
+.skills li[data-level="2"] { --breite: 66%; }
+.skills li[data-level="3"] { --breite: 95%; }
+
+.sprachen {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.sprachen li {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--text-leise);
+  font-size: 0.9rem;
+}
+.sprachen strong {
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0 0 0 24px;
+  border-left: 2px solid var(--rand);
+}
+.timeline li {
+  position: relative;
+  margin-bottom: 32px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon);
+  box-shadow: 0 0 12px var(--neon);
+}
+.timeline h4 {
+  margin: 4px 0;
+  font-size: 1.1rem;
+}
+.timeline p {
+  margin: 0;
+  color: var(--text-leise);
+}
+
+/* Arbeit bekommt violette Punkte, Bildung bleibt cyan */
+.timeline li[data-typ="arbeit"]::before {
+  background: var(--neon-2);
+  box-shadow: 0 0 12px var(--neon-2);
+}
+
+/* Die aktuelle Station pulsiert */
+.timeline li.jetzt::before {
+  animation: pulsieren 1.8s ease-in-out infinite;
+}
+@keyframes pulsieren {
+  50% { box-shadow: 0 0 24px 6px var(--neon); }
+}
+
+.timeline li.versteckt {
+  display: none;
+}
+
+/* Aufklappbare Einträge */
+.timeline summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 40px 12px 16px;
+  margin-left: -16px;
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s;
+}
+.timeline summary::-webkit-details-marker {
+  display: none;
+}
+.timeline summary:hover {
+  background: var(--flaeche);
+}
+.timeline summary::after {
+  content: "+";
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  font-family: var(--mono);
+  color: var(--neon);
+  font-size: 1.2rem;
+}
+.timeline details[open] summary::after {
+  content: "−";
+}
+/* Einträge ohne Details brauchen kein Plus */
+.timeline details:not(:has(.details)) summary {
+  cursor: default;
+}
+.timeline details:not(:has(.details)) summary::after {
+  content: none;
+}
+
+.details {
+  margin: 4px 0 0;
+  padding: 16px 20px;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  color: var(--text-leise);
+  animation: einblenden 0.3s ease;
+}
+ul.details {
+  padding-left: 36px;
+}
+ul.details li {
+  margin-bottom: 4px;
+}
+ul.details li::marker {
+  color: var(--neon-2);
+}
+
+.zeit {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--neon);
+}
+
+.hinweis {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--text-leise);
+}
+
+/* Filter-Buttons über dem Zeitstrahl */
+.filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.filter button {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--rand);
+  background: var(--flaeche);
+  color: var(--text-leise);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.filter button:hover,
+.filter button.aktiv {
+  color: var(--neon);
+  border-color: var(--neon);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+}
+
+/* Semester-Anzeige: 7 Kästchen */
+.semester {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.semester span {
+  height: 10px;
+  border-radius: 3px;
+  background: var(--flaeche-hell);
+  border: 1px solid var(--rand);
+}
+.semester .fertig {
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+  border-color: transparent;
+}
+.semester .aktuell {
+  background: var(--neon-3);
+  border-color: transparent;
+  animation: blinken 1.4s ease-in-out infinite;
+}
+
+.klein {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  margin-top: 4px !important;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-leise);
+  border-top: 1px solid var(--rand);
+}
+
+/* ---------- Handy ---------- */
+@media (max-width: 700px) {
+  #menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 12px 16px;
+    background: rgba(5, 8, 22, 0.95);
+    border-bottom: 1px solid var(--rand);
+  }
+  .nav-links.offen {
+    display: flex;
+  }
+
+  main {
+    padding-top: 32px;
+  }
+
+  .terminal-inhalt {
+    padding: 20px;
+  }
+}
